@@ -1,23 +1,21 @@
-int sorted_search(int []elements, int target){
-	if(elements == null || elements.length <= 0)	// elements.length <= 0
-		retrun -1;
-	int legt = 0, right = elements.length - 1;
-while(left < right){	//	<=
-	int middle = (left + right + 1) / 2;	// left + (right - left) / 2
-	
-	if(elements[middle] > target)
-		right = middle - 1;
-	/*
-	else if(elements[middle] < target)
-		left = middle + 1;
-	else
-		return middle;
-	*/
-	else
-		left = middle + 1;
-}	
+int[] data;
+int size;
+public boolean binarySearch(int key) 
+{
+	int low = 0;
+	int high = size - 1;
 
-if(elements[right] == target)
-	return right;
-return -1;
+	while(high >= low) {
+		int middle = (low + high) / 2;
+		if(data[middle] == key) {
+			return true;
+		}
+		if(data[middle] < key) {
+			low = middle + 1;
+		}
+		if(data[middle] > key) {
+			high = middle - 1;
+		}
+	}
+	return false;
 }
